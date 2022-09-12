@@ -21,8 +21,8 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Customer> findCustomerById(@PathVariable("id") int id){
-        Optional<Customer> planet = Optional.of(customerRepository.findById(id).orElseThrow(() -> new RuntimeException("not found")));
-        return ResponseEntity.ok().body(planet.get());
+        Optional<Customer> customer = Optional.of(customerRepository.findById(id).orElseThrow(() -> new RuntimeException("not found")));
+        return ResponseEntity.ok().body(customer.get());
     }
 
 }
